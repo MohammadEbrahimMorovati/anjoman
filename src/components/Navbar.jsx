@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <>
       {/* ===== Navbar اصلی ===== */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200">
+   <header className="sticky top-0 z-50 bg-white/75 backdrop-blur-xl border-b border-slate-200">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
           {/* Brand */}
@@ -42,7 +42,7 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
             {navItems.map((item) => (
               <li key={item.href} className="relative group">
-                <a href={item.href} className="text-slate-700">
+                <a href={item.href} className="text-slate-700 hover:text-slate-900 transition-colors">
                   {item.label}
                 </a>
                 <span className="absolute -bottom-1 right-0 h-[2px] w-0 bg-indigo-500 transition-all group-hover:w-full"></span>

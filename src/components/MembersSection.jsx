@@ -2,61 +2,69 @@ import { useState } from "react";
 import { members } from "../data/members";
 import MemberModal from "./MemberModal";
 
-const MembersSection = () => {
-  const [selectedMember, setSelectedMember] = useState(null);
+export default function MembersSection() {
+  const [activeMember, setActiveMember] = useState(null);
 
   return (
-    <section id="members" className="py-20">
-      <h2 className="text-center text-2xl font-bold text-slate-800">
-        اعضای انجمن علمی
-      </h2>
-      <p className="text-center text-slate-500 text-sm mt-2">
-        تیم متخصص و متعهد ما
-      </p>
+    <section
+      id="members"
+      className="py-24 bg-gradient-to-b from-slate-50 to-white"
+    >
+      {/* Header */}
+      <div className="max-w-3xl mx-auto text-center mb-16 px-6">
+        <h2 className="text-2xl font-bold text-slate-800">
+          اعضای انجمن علمی
+        </h2>
+        <p className="mt-3 text-sm text-slate-500 leading-relaxed">
+          تیمی متشکل از دانشجویان فعال و اعضای هیئت علمی که با هدف
+          ارتقای سطح علمی و پژوهشی فعالیت می‌کنند
+        </p>
+      </div>
 
-      <div className="max-w-6xl mx-auto mt-14 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-12 justify-items-center">
+      {/* Grid */}
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-16 gap-x-8 justify-items-center px-6">
 
         {members.map((m) => (
-          <div
+          <button
             key={m.id}
-            className="text-center cursor-pointer group"
-            onClick={() => setSelectedMember(m)}
+            onClick={() => setActiveMember(m)}
+            className="group text-center focus:outline-none"
           >
-            {/* گرادیان دور عکس */}
+            {/* Avatar */}
             <div
-              className={`p-[4px] rounded-full bg-gradient-to-br ${m.color} shadow-lg transition-transform group-hover:scale-105`}
+              className={`p-[3px] rounded-full bg-gradient-to-br ${m.color}
+              transition-transform duration-300 group-hover:scale-[1.03]`}
             >
               <img
                 src={m.img}
-                className="w-28 h-28 rounded-full object-cover border-4 border-white"
                 alt={m.name}
+                className="w-28 h-28 rounded-full object-cover bg-white"
               />
             </div>
 
-            {/* کارت نقش */}
+            {/* Role */}
             <span
-              className="mt-3 inline-block text-[11px] px-3 py-1 rounded-full 
-              bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold shadow"
+              className="mt-5 inline-block px-4 py-1 rounded-full
+              text-[11px] font-medium tracking-wide
+              bg-slate-100 text-slate-600"
             >
               {m.role}
             </span>
 
-            {/* نام */}
-            <p className="mt-2 text-sm font-semibold text-slate-800">
+            {/* Name */}
+            <p className="mt-3 text-sm font-semibold text-slate-800">
               {m.name}
             </p>
-          </div>
+          </button>
         ))}
 
       </div>
 
-      {/* modal */}
+      {/* Modal */}
       <MemberModal
-        member={selectedMember}
-        onClose={() => setSelectedMember(null)}
+        member={activeMember}
+        onClose={() => setActiveMember(null)}
       />
     </section>
   );
-};
-
-export default MembersSection;
+}

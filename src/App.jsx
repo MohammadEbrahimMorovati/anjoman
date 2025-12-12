@@ -7,8 +7,9 @@ import StatsSection from "./components/StatsSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import TimelineSection from "./components/TimelineSection";
-import QuoteSection from "./components/QuoteSection";
+// import QuoteSection from "./components/QuoteSection";
 import AchievementsSection from "./components/AchievementsSection";
+import SignatureSection from "./components/SignatureSection";
 export default function App() {
   return (
     <div className="font-sans bg-slate-50">
@@ -17,7 +18,8 @@ export default function App() {
       <MembersSection />
       <ActivitiesSection />
       <TimelineSection />
-      <QuoteSection />
+      <SignatureSection />
+      {/* <QuoteSection /> */}
       <AchievementsSection />
        <EventsSection />
        <StatsSection/>  

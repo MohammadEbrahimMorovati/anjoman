@@ -1,96 +1,96 @@
-const items = [
-  {
-    title: "پژوهش و فعالیت علمی",
-    desc:
-      "انجام و پشتیبانی پروژه‌های پژوهشی دانشجویی با راهنمایی اعضای هیئت علمی و تمرکز بر حل مسائل واقعی.",
-    bullets: [
-      "بیش از ۲۰ پروژه دانشجویی",
-      "چندین مقاله ارائه‌شده در مجلات و کنفرانس‌ها",
-    ],
-    icon: "research",
-    color: "indigo",
-  },
-  {
-    title: "کارگاه‌ها و دوره‌های آموزشی",
-    desc:
-      "برگزاری کارگاه‌های مهارت‌محور با هدف توانمندسازی دانشجویان و آشنایی با نیازهای بازار کار.",
-    bullets: [
-      "برگزاری منظم کارگاه‌های تخصصی",
-      "مشارکت گسترده دانشجویان",
-    ],
-    icon: "education",
-    color: "emerald",
-  },
-  {
-    title: "همایش‌ها و رویدادهای علمی",
-    desc:
-      "برگزاری و همکاری در همایش‌ها و نشست‌های علمی با حضور اساتید دانشگاه و متخصصان صنعت.",
-    bullets: [
-      "چندین رویداد علمی در سطح دانشگاه",
-      "تعامل دانشجویان با متخصصان",
-    ],
-    icon: "conference",
-    color: "pink",
-  },
-];
+// const items = [
+//   {
+//     title: "پژوهش و فعالیت علمی",
+//     desc:
+//       "انجام و پشتیبانی پروژه‌های پژوهشی دانشجویی با راهنمایی اعضای هیئت علمی و تمرکز بر حل مسائل واقعی.",
+//     bullets: [
+//       "بیش از ۲۰ پروژه دانشجویی",
+//       "چندین مقاله ارائه‌شده در مجلات و کنفرانس‌ها",
+//     ],
+//     icon: "research",
+//     color: "indigo",
+//   },
+//   {
+//     title: "کارگاه‌ها و دوره‌های آموزشی",
+//     desc:
+//       "برگزاری کارگاه‌های مهارت‌محور با هدف توانمندسازی دانشجویان و آشنایی با نیازهای بازار کار.",
+//     bullets: [
+//       "برگزاری منظم کارگاه‌های تخصصی",
+//       "مشارکت گسترده دانشجویان",
+//     ],
+//     icon: "education",
+//     color: "emerald",
+//   },
+//   {
+//     title: "همایش‌ها و رویدادهای علمی",
+//     desc:
+//       "برگزاری و همکاری در همایش‌ها و نشست‌های علمی با حضور اساتید دانشگاه و متخصصان صنعت.",
+//     bullets: [
+//       "چندین رویداد علمی در سطح دانشگاه",
+//       "تعامل دانشجویان با متخصصان",
+//     ],
+//     icon: "conference",
+//     color: "pink",
+//   },
+// ];
 
 
   
-const ActivitiesSection = () => {
-  return (
-<section id="activities" className="py-20 bg-slate-50">
-  <h2 className="text-center text-xl font-bold text-slate-800">
-    فعالیت‌های انجمن علمی
-  </h2>
+// const ActivitiesSection = () => {
+//   return (
+// <section id="activities" className="py-20 bg-slate-50">
+//   <h2 className="text-center text-xl font-bold text-slate-800">
+//     فعالیت‌های انجمن علمی
+//   </h2>
 
-  <p className="text-center text-slate-500 text-sm mt-1">
-    گزارشی از اقدامات و برنامه‌های انجام‌شده
-  </p>
+//   <p className="text-center text-slate-500 text-sm mt-1">
+//     گزارشی از اقدامات و برنامه‌های انجام‌شده
+//   </p>
 
-  <div className="max-w-6xl mx-auto mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    {items.map((item, idx) => (
-      <article
-        key={idx}
-        className="bg-white rounded-2xl p-6 border border-slate-200
-        hover:shadow-md transition"
-      >
-        {/* header */}
-        <div className="flex items-center gap-3 mb-4">
-          <span
-            className={`h-10 w-10 rounded-full flex items-center justify-center
-            bg-${item.color}-100 text-${item.color}-600 text-sm font-bold`}
-          >
-            {idx + 1}
-          </span>
-          <h3 className="font-semibold text-slate-800 text-sm">
-            {item.title}
-          </h3>
-        </div>
+//   <div className="max-w-6xl mx-auto mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+//     {items.map((item, idx) => (
+//       <article
+//         key={idx}
+//         className="bg-white rounded-2xl p-6 border border-slate-200
+//         hover:shadow-md transition"
+//       >
+//         {/* header */}
+//         <div className="flex items-center gap-3 mb-4">
+//           <span
+//             className={`h-10 w-10 rounded-full flex items-center justify-center
+//             bg-${item.color}-100 text-${item.color}-600 text-sm font-bold`}
+//           >
+//             {idx + 1}
+//           </span>
+//           <h3 className="font-semibold text-slate-800 text-sm">
+//             {item.title}
+//           </h3>
+//         </div>
 
-        {/* description */}
-        <p className="text-sm text-slate-600 leading-relaxed mb-4">
-          {item.desc}
-        </p>
+//         {/* description */}
+//         <p className="text-sm text-slate-600 leading-relaxed mb-4">
+//           {item.desc}
+//         </p>
 
-        {/* bullets */}
-        <ul className="space-y-2 text-sm text-slate-500">
-          {item.bullets.map((b, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400"></span>
-              {b}
-            </li>
-          ))}
-        </ul>
-      </article>
-    ))}
-  </div>
-</section>
+//         {/* bullets */}
+//         <ul className="space-y-2 text-sm text-slate-500">
+//           {item.bullets.map((b, i) => (
+//             <li key={i} className="flex items-start gap-2">
+//               <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+//               {b}
+//             </li>
+//           ))}
+//         </ul>
+//       </article>
+//     ))}
+//   </div>
+// </section>
 
 
-  );
-};
+//   );
+// };
 
-export default ActivitiesSection;
+// export default ActivitiesSection;
 
 // این بخش هم بنظرم باید واقعی تر بشه
 // const items = [
@@ -159,3 +159,90 @@ export default ActivitiesSection;
 // };
 
 // export default ActivitiesSection;
+
+
+const activities = [
+  {
+    title: "پژوهش و فعالیت علمی",
+    desc:
+      "حمایت و راهبری پروژه‌های پژوهشی دانشجویی با تمرکز بر مسائل علمی و کاربردی و همکاری با اعضای هیئت علمی.",
+    bullets: [
+      "تعریف و اجرای پروژه‌های پژوهشی دانشجویی",
+      "ارائه نتایج در قالب مقاله یا گزارش علمی",
+    ],
+  },
+  {
+    title: "کارگاه‌ها و دوره‌های آموزشی",
+    desc:
+      "برگزاری کارگاه‌های آموزشی مهارت‌محور با هدف ارتقای توانمندی‌های علمی و عملی دانشجویان.",
+    bullets: [
+      "کارگاه‌های تخصصی در طول سال تحصیلی",
+      "مشارکت فعال دانشجویان رشته‌های مرتبط",
+    ],
+  },
+  {
+    title: "رویدادها و نشست‌های علمی",
+    desc:
+      "برگزاری و مشارکت در نشست‌ها، همایش‌ها و رویدادهای علمی با حضور اساتید دانشگاه و متخصصان صنعت.",
+    bullets: [
+      "نشست‌های علمی در سطح دانشکده",
+      "تعامل دانشجویان با فضای علمی و حرفه‌ای",
+    ],
+  },
+];
+
+export default function ActivitiesSection() {
+  return (
+    <section
+      id="activities"
+      className="py-24 bg-gradient-to-b from-white to-slate-50"
+    >
+      {/* Header */}
+      <div className="max-w-3xl mx-auto text-center mb-16 px-6">
+        <h2 className="text-2xl font-bold text-slate-800">
+          فعالیت‌های انجمن علمی
+        </h2>
+        <p className="mt-3 text-sm text-slate-500 leading-relaxed">
+          مروری بر حوزه‌های اصلی فعالیت انجمن در راستای ارتقای سطح علمی و پژوهشی
+          دانشجویان
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-6">
+        {activities.map((item, i) => (
+          <article
+            key={i}
+            className="bg-white rounded-2xl border border-slate-200
+            px-8 py-10 hover:shadow-md transition"
+          >
+            {/* index */}
+            <span className="inline-flex items-center justify-center
+              w-8 h-8 rounded-full bg-indigo-50 text-indigo-600
+              text-xs font-semibold mb-5"
+            >
+              {i + 1}
+            </span>
+
+            <h3 className="text-sm font-semibold text-slate-800 mb-3">
+              {item.title}
+            </h3>
+
+            <p className="text-sm text-slate-600 leading-relaxed mb-6">
+              {item.desc}
+            </p>
+
+            <ul className="space-y-3 text-sm text-slate-600">
+              {item.bullets.map((b, j) => (
+                <li key={j} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

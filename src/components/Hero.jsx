@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const slides = [
   {
@@ -10,76 +10,85 @@ const slides = [
   {
     id: 2,
     image: "/images/hero2.jpg",
-    title: "توسعه علم و فناوری",
-    subtitle: "ایجاد زیرساخت برای پژوهش‌های نوین",
+    title: "آموزش، مهارت و رشد",
+    subtitle: "کارگاه‌های تخصصی برای توانمندسازی دانشجویان",
   },
   {
     id: 3,
     image: "/images/hero3.jpg",
-    title: "فرصتی برای شکوفایی",
-    subtitle: "همکاری دانشجویان و اساتید در پروژه‌های علمی",
+    title: "رویدادهای علمی پویا",
+    subtitle: "همایش‌ها و نشست‌های تخصصی با حضور اساتید و صنعت",
   },
 ];
 
-const Hero = () => {
+export default function Hero() {
   const [index, setIndex] = useState(0);
 
-  // Auto slide every 5 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
+    const t = setInterval(() => {
+      setIndex((p) => (p + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(t);
   }, []);
 
   return (
-    <section className="relative h-[430px] md:h-[520px] overflow-hidden">
-
-      {/* تصویری که اسلاید می‌شود */}
+    <section id="home" className="relative h-[460px] md:h-[560px] overflow-hidden">
+      {/* Background image */}
       <img
-        key={slides[index].id}  
+        key={slides[index].id}
         src={slides[index].image}
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 brightness-90"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover scale-[1.02]"
       />
 
-      {/* گرادیان روی تصویر */}
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/40 via-purple-500/30 to-transparent"></div>
+      {/* Overlay: برای خوانایی متن */}
+      <div className="absolute inset-0 bg-black/25" />
 
-      {/* متن روی تصویر */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-20">
+      {/* Gradient overlay مثل نمونه */}
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/45 via-purple-500/25 to-transparent" />
 
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg">
-          {slides[index].title}
-        </h1>
+      {/* Content */}
+      <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-16 flex items-center">
+        <div className="max-w-xl">
+          <h1 className="text-white text-3xl md:text-5xl font-extrabold leading-tight drop-shadow">
+            {slides[index].title}
+          </h1>
 
-        <p className="text-sm md:text-base text-slate-100 mt-3 drop-shadow">
-          {slides[index].subtitle}
-        </p>
+          <p className="mt-4 text-white/90 text-sm md:text-base leading-relaxed">
+            {slides[index].subtitle}
+          </p>
 
-        <a
-          href="#events"
-          className="mt-6 inline-block px-6 py-2 rounded-full bg-white text-indigo-600 
-          font-semibold shadow hover:bg-slate-100 transition"
-        >
-          پروژه‌ها
-        </a>
+          <div className="mt-8 flex items-center gap-3">
+            <a
+              href="#events"
+              className="px-6 py-2 rounded-full bg-white text-slate-900 text-sm font-semibold shadow hover:shadow-md transition"
+            >
+              مشاهده رویدادها
+            </a>
+
+            <a
+              href="#contact"
+              className="px-6 py-2 rounded-full bg-white/15 text-white text-sm font-semibold border border-white/30 hover:bg-white/20 transition"
+            >
+              ارتباط با انجمن
+            </a>
+          </div>
+        </div>
       </div>
 
-      {/* نقاط پایین اسلایدر */}
-      <div className="absolute bottom-5 w-full flex justify-center gap-3 z-20">
-        {slides.map((slide, i) => (
+      {/* Indicators */}
+      <div className="absolute bottom-6 w-full flex justify-center gap-2 z-20">
+        {slides.map((s, i) => (
           <button
-            key={slide.id}
+            key={s.id}
             onClick={() => setIndex(i)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === i ? "bg-white scale-125" : "bg-white/50"
+            className={`h-2.5 rounded-full transition-all ${
+              index === i ? "w-8 bg-white" : "w-2.5 bg-white/50"
             }`}
-          ></button>
+            aria-label={`slide ${i + 1}`}
+          />
         ))}
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
