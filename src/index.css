@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  direction: rtl;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@keyframes slideleft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-slideleft {
+  animation: slideleft .3s ease-out;
+}
