@@ -6,6 +6,9 @@ import EventsSection from "./components/EventsSection";
 import StatsSection from "./components/StatsSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import TimelineSection from "./components/TimelineSection";
+import QuoteSection from "./components/QuoteSection";
+import AchievementsSection from "./components/AchievementsSection";
 export default function App() {
   return (
     <div className="font-sans bg-slate-50">
@@ -13,6 +16,9 @@ export default function App() {
       <Hero />
       <MembersSection />
       <ActivitiesSection />
+      <TimelineSection />
+      <QuoteSection />
+      <AchievementsSection />
        <EventsSection />
        <StatsSection/>  
        <ContactSection/>

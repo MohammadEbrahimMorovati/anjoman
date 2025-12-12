@@ -1,72 +1,3 @@
-// import { useState } from "react";
-
-// const Navbar = () => {
-//   const [open, setOpen] = useState(false);
-
-//   return (
-//     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
-//       <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-
-//         {/* logo */}
-//         <div className="flex items-center gap-2">
-//           <div className="h-9 w-9 flex items-center justify-center rounded-xl bg-indigo-500 text-white text-lg shadow">
-//             🎓
-//           </div>
-//           <div>
-//             <h1 className="text-sm font-bold text-slate-800">
-//               انجمن علمی دانشگاه تبریز
-//             </h1>
-//             <p className="text-xs text-slate-500">مرکز نوآوری و پژوهش</p>
-//           </div>
-//         </div>
-
-//         {/* desktop menu */}
-//         <ul className="hidden md:flex items-center gap-6 text-sm">
-//           <li><a href="#home" className="hover:text-indigo-600">خانه</a></li>
-//           <li><a href="#members" className="hover:text-indigo-600">اعضا</a></li>
-//           <li><a href="#activities" className="hover:text-indigo-600">فعالیت‌ها</a></li>
-//           <li><a href="#events" className="hover:text-indigo-600">رویدادها</a></li>
-//           <li><a href="#contact" className="hover:text-indigo-600">تماس</a></li>
-//         </ul>
-
-//         {/* mobile hamburger */}
-//         <button
-//           className="md:hidden text-2xl text-slate-700"
-//           onClick={() => setOpen(true)}
-//         >
-//           ☰
-//         </button>
-//       </nav>
-
-//       {/* mobile menu overlay */}
-//       {open && (
-//         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50">
-//           <div className="fixed right-0 top-0 h-full w-64 bg-white shadow-lg p-6 animate-slideleft">
-
-//             {/* close button */}
-//             <button
-//               className="text-xl text-slate-700"
-//               onClick={() => setOpen(false)}
-//             >
-//               ×
-//             </button>
-
-//             {/* mobile nav items */}
-//             <ul className="mt-6 space-y-4 text-sm">
-//               <li><a onClick={() => setOpen(false)} href="#home">خانه</a></li>
-//               <li><a onClick={() => setOpen(false)} href="#members">اعضا</a></li>
-//               <li><a onClick={() => setOpen(false)} href="#activities">فعالیت‌ها</a></li>
-//               <li><a onClick={() => setOpen(false)} href="#events">رویدادها</a></li>
-//               <li><a onClick={() => setOpen(false)} href="#contact">تماس</a></li>
-//             </ul>
-//           </div>
-//         </div>
-//       )}
-//     </header>
-//   );
-// };
-
-// export default Navbar;
 import { useState, useEffect } from "react";
 
 const navItems = [
@@ -140,47 +71,63 @@ export default function Navbar() {
       </header>
 
       {/* ===== Mobile Menu (Fullscreen واقعی) ===== */}
-      {open && (
-        <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-md">
-          <div className="absolute right-0 top-0 h-full w-[80%] max-w-sm bg-white shadow-2xl flex flex-col">
+   {/* ===== Mobile Menu (Animated) ===== */}
+<div
+  className={`fixed inset-0 z-[9999] transition-all duration-300
+  ${open ? "bg-black/70 backdrop-blur-md visible opacity-100" : "opacity-0 invisible"}`}
+>
+  {/* panel */}
+  <div
+    className={`absolute right-0 top-0 h-full w-[80%] max-w-sm bg-white shadow-2xl flex flex-col
+    transition-transform duration-300 ease-out
+    ${open ? "translate-x-0" : "translate-x-full"}`}
+  >
 
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b">
-              <span className="font-bold text-slate-800">منو</span>
-              <button onClick={() => setOpen(false)} className="text-2xl">
-                ×
-              </button>
-            </div>
+    {/* Header */}
+    <div className="flex items-center justify-between px-6 py-4 border-b">
+      <span className="font-bold text-slate-800">منو</span>
+      <button
+        onClick={() => setOpen(false)}
+        className="text-2xl text-slate-700"
+      >
+        ×
+      </button>
+    </div>
 
-            {/* Links */}
-            <ul className="flex-1 px-6 py-8 space-y-6 text-base font-semibold text-slate-800">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+    {/* Links */}
+    <ul className="flex-1 px-6 py-8 space-y-6 text-base font-semibold text-slate-800">
+      {navItems.map((item, i) => (
+        <li
+          key={item.href}
+          className={`transition-all duration-300 delay-[${i * 40}ms]
+          ${open ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}`}
+        >
+          <a
+            href={item.href}
+            onClick={() => setOpen(false)}
+            className="block"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
 
-            {/* CTA */}
-            <div className="px-6 pb-6">
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="block w-full py-2 rounded-full text-center text-sm font-semibold
-                bg-gradient-to-l from-indigo-500 to-sky-500 text-white shadow"
-              >
-                عضویت / همکاری
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+    {/* CTA */}
+    <div className="px-6 pb-6">
+      <a
+        href="#contact"
+        onClick={() => setOpen(false)}
+        className="block w-full py-2 rounded-full text-center text-sm font-semibold
+        bg-gradient-to-l from-indigo-500 to-sky-500 text-white shadow
+        transition hover:scale-[1.02]"
+      >
+        عضویت / همکاری
+      </a>
+    </div>
+  </div>
+</div>
+
     </>
   );
 }
