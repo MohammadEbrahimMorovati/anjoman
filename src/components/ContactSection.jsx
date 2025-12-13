@@ -1,25 +1,34 @@
+import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
+
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-16">
-      <h2 className="text-center text-xl font-bold text-slate-800">
-        با ما در تماس باشید
-      </h2>
+    <section
+      id="contact"
+      className="py-24 bg-gradient-to-b from-slate-50 to-white"
+    >
+      {/* header */}
+      <div className="text-center max-w-3xl mx-auto px-6">
+        <h2 className="text-2xl font-extrabold text-slate-800">
+          ارتباط با انجمن علمی
+        </h2>
+        <p className="mt-3 text-slate-500 text-sm leading-relaxed">
+          برای عضویت، همکاری یا دریافت اطلاعات بیشتر با ما در ارتباط باشید
+        </p>
+      </div>
 
-      <p className="text-center text-slate-500 text-sm mt-1">
-        برای عضویت، همکاری یا کسب اطلاعات بیشتر پیام ارسال کنید
-      </p>
-
-      <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-
-        {/* فرم تماس */}
-        <form className="space-y-5 bg-white p-8 rounded-2xl shadow border border-slate-200">
-
+      <div className="max-w-6xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-14 px-6">
+        {/* contact form */}
+        <form className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
           <div>
-            <label className="block mb-1 text-xs text-slate-600">نام و نام خانوادگی</label>
+            <label className="block mb-1 text-xs text-slate-600">
+              نام و نام خانوادگی
+            </label>
             <input
               type="text"
-              className="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="مثلاً علی احمدی"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm
+              focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
 
@@ -27,45 +36,79 @@ const ContactSection = () => {
             <label className="block mb-1 text-xs text-slate-600">ایمیل</label>
             <input
               type="email"
-              className="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="example@gmail.com"
+              placeholder="example@email.com"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm
+              focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
 
           <div>
-            <label className="block mb-1 text-xs text-slate-600">پیام شما</label>
+            <label className="block mb-1 text-xs text-slate-600">
+              پیام شما
+            </label>
             <textarea
-              rows="4"
-              className="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              rows="5"
               placeholder="پیام خود را وارد کنید..."
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm
+              focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-2 rounded-xl bg-gradient-to-l from-indigo-500 to-sky-500 text-white text-sm font-semibold shadow hover:opacity-90"
+            className="w-full py-3 rounded-xl bg-gradient-to-l from-indigo-500 to-sky-500
+            text-white text-sm font-semibold shadow hover:shadow-md hover:opacity-95 transition"
           >
             ارسال پیام
           </button>
         </form>
 
-        {/* اطلاعات تماس */}
-        <div className="space-y-5 text-sm text-slate-700">
-          <h3 className="text-slate-800 font-semibold text-base mb-2">
-            اطلاعات تماس انجمن علمی
+        {/* contact info */}
+        <div className="space-y-8">
+          <h3 className="text-base font-semibold text-slate-800">
+            اطلاعات تماس
           </h3>
 
-          <p><span className="font-semibold text-slate-800">آدرس:</span> تبریز، دانشگاه تبریز، ساختمان مرکزی انجمن‌ها</p>
-          <p><span className="font-semibold text-slate-800">تلفن:</span> ۰۴۱-۳۳۳۳۳۳۳۳</p>
-          <p><span className="font-semibold text-slate-800">ایمیل:</span> info@tabrizassociation.ac.ir</p>
+          <div className="space-y-4 text-sm text-slate-600">
+            <div className="flex items-start gap-3">
+              <FiMapPin className="text-indigo-600 mt-0.5" />
+              <span>تبریز، دانشگاه تبریز، ساختمان مرکزی انجمن‌های علمی</span>
+            </div>
 
-          <div className="flex gap-4 text-xl mt-4">
-            <a href="#" className="hover:text-indigo-600">🔗</a>
-            <a href="#" className="hover:text-indigo-600">💼</a>
-            <a href="#" className="hover:text-indigo-600">✉️</a>
+            <div className="flex items-center gap-3">
+              <FiPhone className="text-indigo-600" />
+              <span>۰۴۱-۳۳۳۳۳۳۳۳</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FiMail className="text-indigo-600" />
+              <span>info@tabrizassociation.ac.ir</span>
+            </div>
+          </div>
+
+          {/* socials */}
+          <div className="pt-4">
+            <p className="text-sm text-slate-500 mb-3">شبکه‌های اجتماعی</p>
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="h-10 w-10 rounded-full border border-slate-300
+                flex items-center justify-center text-slate-500
+                hover:border-indigo-500 hover:text-indigo-600 transition"
+              >
+                <FaLinkedinIn />
+              </a>
+              <a
+                href="#"
+                className="h-10 w-10 rounded-full border border-slate-300
+                flex items-center justify-center text-slate-500
+                hover:border-indigo-500 hover:text-indigo-600 transition"
+              >
+                <FaInstagram />
+              </a>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
